@@ -19,8 +19,8 @@ public class Character : MonoBehaviour
         Health.TakeDamage(damage);
     }
 
-    public void Heal(int unitHealth)
+    public void ReceiveTreatment(int unitHealth)
     {
-        Health.Heal(unitHealth);
+        Health.ReceiveTreatment(unitHealth);
     }
 }

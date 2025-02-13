@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f66317b614d1e14faa67ab9a45e2f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healButton: {fileID: 116871365}
+  _button: {fileID: 116871365}
   _character: {fileID: 437099850}
   _unitHealth: 15
 --- !u!1 &248999130
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 437099850}
   _slider: {fileID: 740107830}
-  _delay: 0.5
+  _smoothStep: 0
 --- !u!1 &753535665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a590d7fbb2e076d49858837646ce2791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackButton: {fileID: 800787854}
+  _button: {fileID: 800787854}
   _character: {fileID: 437099850}
   _damage: 10
 --- !u!1 &906093282

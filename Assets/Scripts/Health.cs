@@ -2,41 +2,48 @@ using System;
 
 public class Health
 {
+    private int _maxValue;
+    private int _currentValue;
     private int _minValue;
-
-    public int CurrentValue { get; private set; }
-    public int MaxValue { get; private set; }
 
     public event Action<int> ChangedValue;
 
     public Health(int maxValue)
     {
-        MaxValue = maxValue;
-        CurrentValue = maxValue;
+        if (maxValue <= 0)
+        {
+            _maxValue = 1;
+            _currentValue = _maxValue;
+
+            return;
+        }
+
+        _maxValue = maxValue;
+        _currentValue = maxValue;
         _minValue = 0;
     }
 
     public void TakeDamage(int damage)
     {
-        int nextValue = CurrentValue - damage;
+        int nextValue = _currentValue - damage;
 
         if (nextValue > _minValue)
-            CurrentValue = nextValue;
+            _currentValue = nextValue;
         else
-            CurrentValue = _minValue;
+            _currentValue = _minValue;
 
-        ChangedValue?.Invoke(CurrentValue);
+        ChangedValue?.Invoke(_currentValue);
     }
 
-    public void Heal(int healUnits)
+    public void ReceiveTreatment(int healUnits)
     {
-        int nextValue = CurrentValue + healUnits;
+        int nextValue = _currentValue + healUnits;
 
-        if(nextValue < MaxValue)
-            CurrentValue = nextValue;
+        if(nextValue < _maxValue)
+            _currentValue = nextValue;
         else
-            CurrentValue = MaxValue;
+            _currentValue = _maxValue;
 
-        ChangedValue?.Invoke(CurrentValue);
+        ChangedValue?.Invoke(_currentValue);
     }
 }

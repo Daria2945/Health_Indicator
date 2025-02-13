@@ -1,24 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Attacker : MonoBehaviour
+public class Attacker : ActionButton
 {
-    [SerializeField] private Button _attackButton;
-    [SerializeField] private Character _character;
     [SerializeField] private int _damage;
 
-    private void OnEnable()
+    protected override void OnButtonClick()
     {
-        _attackButton.onClick.AddListener(Attack);
-    }
-
-    private void OnDisable()
-    {
-        _attackButton.onClick.RemoveListener(Attack);
+        Attack();
     }
 
     private void Attack()
     {
-        _character.TakeDamage(_damage);
+        Character.TakeDamage(_damage);
     }
 }
