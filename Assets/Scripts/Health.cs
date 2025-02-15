@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class Health
 {
@@ -15,12 +16,16 @@ public class Health
             _maxValue = 1;
             _currentValue = _maxValue;
 
+            Debug.Log("Init Health");
+
             return;
         }
 
         _maxValue = maxValue;
         _currentValue = maxValue;
         _minValue = 0;
+
+        Debug.Log("Init Health");
     }
 
     public void TakeDamage(int damage)

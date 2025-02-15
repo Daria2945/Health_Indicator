@@ -6,11 +6,16 @@ public class HealthBar : MonoBehaviour
 
     protected Character Character => _character;
 
-    private void Start()
+    private void Awake()
     {
         UpdateValue(_character.MaxHealth);
+    }
 
+    private void OnEnable()
+    {
+        Debug.Log("OnEnable HealthBar");
         _character.Health.ChangedValue += UpdateValue;
+
     }
 
     private void OnDisable()

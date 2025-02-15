@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         _health = new Health(_maxHealth);
+        Debug.Log("Awake character, health");
     }
 
     public void TakeDamage(int damage)
